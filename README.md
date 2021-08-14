@@ -1,2 +1,2 @@
 # calculatorService
- A SOAP WS calculatorService app using Spring Boot
+ A SOAP WS Calculator App using Spring Boot
