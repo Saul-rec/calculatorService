@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.htc.com/calculatorservice"
+	xmlns:tns="http://www.htc.com/calculatorservice"
+	elementFormDefault="qualified">
+
+	<xs:element name="Add">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="firstNumber" type="xs:double"></xs:element>
+				<xs:element name="secondNumber" type="xs:double"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Result" type="tns:Result"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Result">
+	<xs:sequence>
+	<xs:element name="addResult" type="xs:double"></xs:element>
+	</xs:sequence>
+	</xs:complexType>
+	<!-- 
+	<xs:element name="Substract">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="firstNumber" type="xs:double"></xs:element>
+				<xs:element name="secondNumber" type="xs:double"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SubstractResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SubstractResult" type="xs:double"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Divide">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="firstNumber" type="xs:double"></xs:element>
+				<xs:element name="secondNumber" type="xs:double"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DivideResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DivideResult" type="xs:double"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Multiply">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="firstNumber" type="xs:double"></xs:element>
+				<xs:element name="secondNumber" type="xs:double"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MultiplyResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MultiplyResult" type="xs:double"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element> -->
+</xs:schema>
