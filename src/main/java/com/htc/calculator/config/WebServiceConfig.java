@@ -52,14 +52,14 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	 public SoapFaultMappingExceptionResolver exceptionResolver() {
 		 SoapFaultMappingExceptionResolver resolver = new DetailSoapFaultDefinitionExceptionResolver();
 		 
-//		 SoapFaultDefinition definition = new SoapFaultDefinition();
-//		 definition.setFaultCode(SoapFaultDefinition.SERVER);
-//		 resolver.setDefaultFault(definition);
+		 SoapFaultDefinition definition = new SoapFaultDefinition();
+		 definition.setFaultCode(SoapFaultDefinition.SERVER);
+		 resolver.setDefaultFault(definition);
 		 
 		 Properties errorMapping = new Properties();
 		 errorMapping.setProperty(Exception.class.getName(), SoapFaultDefinition.SERVER.toString());
 		 errorMapping.setProperty(CalculatorExceptionHandler.class.getName(), 
-				 SoapFaultDefinition.SERVER.toString());
+				 SoapFaultDefinition.SENDER.toString());
 		 resolver.setExceptionMappings(errorMapping);
 		 resolver.setOrder(1);
 		 

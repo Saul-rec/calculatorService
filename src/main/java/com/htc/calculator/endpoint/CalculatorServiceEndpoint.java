@@ -6,7 +6,6 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.htc.calculator.exceptions.CalculatorExceptionHandler;
 import com.htc.calculator.operations.CalculatorOperationsService;
 import com.htc.calculatorservice.AddRequest;
 import com.htc.calculatorservice.AddResponse;
@@ -34,55 +33,44 @@ public class CalculatorServiceEndpoint {
 	@ResponsePayload
 	public AddResponse addResponse(@RequestPayload AddRequest request) {
 		AddResponse response = new AddResponse();
-		if (request.getFirstNumber() == 0 || request.getSecondNumber() == 0) {
-			String errorMessage = "MISSING DATA";
-			opsResponse.setOperationResponseCode("400 Bad Request");
-			opsResponse.setMessage("Any number provided to perform an operation");
-			throw new CalculatorExceptionHandler(errorMessage, opsResponse);
-		}
-		response.setAddResult(cOperations.add(request.getFirstNumber(), request.getSecondNumber()));
+		response.setAddResult(cOperations.add(
+				request.getFirstNumber(), 
+				request.getSecondNumber()
+				));
 		return response;
 	}
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "SubstractRequest")
 	@ResponsePayload
-	public SubstractResponse subtractResponse(@RequestPayload SubstractRequest request) {
+	public SubstractResponse subtractResponse(@RequestPayload SubstractRequest request)  {
 		SubstractResponse response = new SubstractResponse();
-		if (request.getFirstNumber() == 0 || request.getSecondNumber() == 0) {
-			String errorMessage = "MISSING DATA";
-			opsResponse.setOperationResponseCode("400 Bad Request");
-			opsResponse.setMessage("Any number provided to perform an operation");
-			throw new CalculatorExceptionHandler(errorMessage, opsResponse);
-		}
-		response.setSubstractResult(cOperations.substract(request.getFirstNumber(), request.getSecondNumber()));
+		response.setSubstractResult(cOperations.substract(
+				request.getFirstNumber(), 
+				request.getSecondNumber()
+				));
 		return response;
 	}
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "DivideRequest")
 	@ResponsePayload
-	public DivideResponse divideResponse(@RequestPayload DivideRequest request) throws CalculatorExceptionHandler {
+	public DivideResponse divideResponse(@RequestPayload DivideRequest request) {
 		DivideResponse response = new DivideResponse();
-		if (request.getFirstNumber() == 0 || request.getSecondNumber() == 0) {
-			String errorMessage = "MISSING DATA";
-			opsResponse.setOperationResponseCode("400 Bad Request");
-			opsResponse.setMessage("Any number provided to perform an operation");
-			throw new CalculatorExceptionHandler(errorMessage, opsResponse);
-		}
-		response.setDivideResponse(cOperations.divide(request.getFirstNumber(), request.getSecondNumber()));
+		response.setDivideResponse(cOperations.divide(
+				request.getFirstNumber(), 
+				request.getSecondNumber()
+				));
 		return response;
 	}
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "MultiplyRequest")
 	@ResponsePayload
-	public MultiplyResponse multiplyResponse(@RequestPayload MultiplyRequest request) {
+	public MultiplyResponse multiplyResponse(@RequestPayload MultiplyRequest request)  {
 		MultiplyResponse response = new MultiplyResponse();
-		if (request.getFirstNumber() == 0 || request.getSecondNumber() == 0) {
-			String errorMessage = "MISSING DATA";
-			opsResponse.setOperationResponseCode("400 Bad Request");
-			opsResponse.setMessage("Any number provided to perform an operation");
-			throw new CalculatorExceptionHandler(errorMessage, opsResponse);
-		}
-		response.setMultiplyResult(cOperations.multiply(request.getFirstNumber(), request.getSecondNumber()));
+		response.setMultiplyResult(cOperations.multiply(
+				request.getFirstNumber(), request.getSecondNumber()
+				));
 		return response;
 	}
+	
+	
 }
